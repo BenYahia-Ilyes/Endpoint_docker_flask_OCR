@@ -41,10 +41,6 @@ COPY . /app
 RUN ls /*
 
 
-ENTRYPOINT ["python3"]
-
-CMD ["send_request.py"]
-
-
+ENTRYPOINT ["python3","send_request.py"]
 
 

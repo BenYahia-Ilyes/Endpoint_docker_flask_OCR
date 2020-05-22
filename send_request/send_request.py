@@ -3,8 +3,28 @@ import requests
 import json
 import cv2
 
+import argparse
 
-addr = 'http://172.17.0.2:5000'
+# Create the parser and add arguments
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-i", "--ip", required = True, dest="ip", help = "Path to the image to be scanned (must be in the same directory)", 
+       default="Test_Sylvain1.png")   # dest est l'id de l'argument apres
+
+
+
+# Parse and print the results
+args = parser.parse_args()
+
+
+#ip="endpoint Ip : " +args.ip 
+#print(ip )
+
+
+
+
+
+addr = 'http://'+ args.ip + ':5000'
 
 
 
