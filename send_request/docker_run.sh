@@ -1,12 +1,7 @@
 #!/bin/bash
 
-export endpoint_docker_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' endpoint)
 
-
-echo $endpoint_docker_ip
-
-
-docker run -v $PWD/:/app/  ilyes/request_1    --ip=$endpoint_docker_ip
+docker run -v $PWD/:/app/ --network local_network1  ilyes/request_1  
 
 
 

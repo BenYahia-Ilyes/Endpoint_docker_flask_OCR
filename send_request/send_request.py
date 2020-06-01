@@ -3,28 +3,12 @@ import requests
 import json
 import cv2
 
-import argparse
-
-# Create the parser and add arguments
-parser = argparse.ArgumentParser()
-
-parser.add_argument("-i", "--ip", required = True, dest="ip", help = "Path to the image to be scanned (must be in the same directory)", 
-       default="Test_Sylvain1.png")   # dest est l'id de l'argument apres
-
-
-
-# Parse and print the results
-args = parser.parse_args()
-
-
-#ip="endpoint Ip : " +args.ip 
-#print(ip )
 
 
 
 
 
-addr = 'http://'+ args.ip + ':5000'
+addr = 'http://endpoint:5000'
 
 
 
@@ -39,7 +23,7 @@ print(json.loads(r.text))
 
 
 # upload and encode image as jpg
-img = cv2.imread('test.jpg' , -1)
+img = cv2.imread('test2.png' , -1)
 _, img_encoded = cv2.imencode('.jpg', img)
 
 

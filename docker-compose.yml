@@ -1,0 +1,62 @@
+version: '3.7'
+
+services:
+  endpoint:
+
+    container_name: endpoint_container
+
+    image: ilyes/docker_flask
+
+    environment:
+
+      
+
+      DATABASE_URL: "postgresql://postgres:pass@postgres_db:5432/ilyes" 
+      APP_SETTINGS: "config.DevelopmentConfig"
+
+
+    networks:
+      - network1
+    ports:
+      - 5000:5000
+    volumes:
+      - ./endpoint:/app/
+      
+
+    restart: always
+    stdin_open: true
+    tty: true
+
+
+
+
+
+  postgres_db:
+
+    container_name: postgres_db_container
+
+    environment:
+      #POSTGRES_USER: ilyes
+      #POSTGRES_DB: ilyes
+
+      POSTGRES_PASSWORD: pass
+    image: postgres:11.8-alpine
+    networks:
+      - network1
+    ports:
+      - 5432:5432
+    volumes:
+      - "./data_db:/var/lib/postgresql/data"
+
+    restart: always
+    stdin_open: true
+    tty: true
+
+
+
+networks:
+  network1:
+    name: local_network1
+
+
+

@@ -32,9 +32,7 @@ WORKDIR  /app
 # Installing python dependencies
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
-RUN pip3 install pytesseract
-RUN pip3 install flask
-RUN pip3 install fuzzywuzzy
+RUN pip3 install psycopg2-binary
 
 
 
@@ -45,9 +43,7 @@ COPY . /app
 RUN ls /*
 
 
-ENTRYPOINT ["python3"]
-
-CMD ["backend.py"]
+ENTRYPOINT ["python3" ,"scripts/backend.py"]
 
 
 
